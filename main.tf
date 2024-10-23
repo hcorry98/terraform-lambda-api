@@ -10,7 +10,7 @@ locals {
 
 # ========== Lambda Policies ==========
 resource "aws_iam_role" "lambda_role" {
-  name                 = var.app_name
+  name = var.app_name
   assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
