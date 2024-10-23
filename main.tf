@@ -8,15 +8,9 @@ locals {
   }
 }
 
-# ========== Miscellaneous Data ==========
-module "acs" {
-  source = "github.com/byu-oit/terraform-aws-acs-info?ref=v4.0.0"
-}
-
 # ========== Lambda Policies ==========
 resource "aws_iam_role" "lambda_role" {
   name                 = var.app_name
-  permissions_boundary = module.acs.role_permissions_boundary.arn
   assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
